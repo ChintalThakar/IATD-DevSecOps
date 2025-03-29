@@ -25,7 +25,6 @@ jobs:
         with:
           name: test-results
           path: junit/test-results.xml
-  
   sonarqube:
             needs: test
             if: true
@@ -39,8 +38,7 @@ jobs:
               uses: sonarsource/sonarqube-scan-action@master
               env:
                 SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-                SONAR_HOST_URL: ${{ secrets.SONAR_URL }}
-          
+                SONAR_HOST_URL: ${{ secrets.SONAR_URL }}        
   build:
     needs: test
     permissions:
