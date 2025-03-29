@@ -45,7 +45,7 @@ jobs:
                           path: ${{ steps.image-scan.outputs.json }} 
   sonarqube:
           needs: test
-          if: false
+          if: true
           runs-on: ubuntu-latest
           steps:
           - uses: actions/checkout@v3
