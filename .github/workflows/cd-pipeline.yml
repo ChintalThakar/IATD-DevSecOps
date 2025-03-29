@@ -16,7 +16,7 @@ jobs:
             CERT_IDENTITY_REGEXP: https://github.com/.*/<YOUR_GITHUB_REPOSITORY_NAME>/.github/workflows/ci-pipeline.yml.*
           run: |
             cosign verify $IMAGE  --certificate-identity-regexp $CERT_IDENTITY_REGEXP  --certificate-oidc-issuer $GITHUB_ISSUER
-#  deploy:
+#   deploy:
 #    runs-on: ubuntu-latest
 #    steps:
 #      - uses: azure/login@v1
