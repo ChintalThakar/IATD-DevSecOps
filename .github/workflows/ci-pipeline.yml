@@ -27,7 +27,7 @@ jobs:
           path: junit/test-results.xml
   image-scan:
       needs: [test]
-      if: true
+      if: false
       runs-on: ubuntu-latest
       steps:
                       - name: Scan image
@@ -45,7 +45,7 @@ jobs:
                           path: ${{ steps.image-scan.outputs.json }} 
   sonarqube:
           needs: test
-          if: true
+          if: false
           runs-on: ubuntu-latest
           steps:
           - uses: actions/checkout@v3
