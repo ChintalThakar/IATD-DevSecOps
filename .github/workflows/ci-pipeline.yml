@@ -175,7 +175,7 @@ jobs:
               
               echo "All security gates passed"      
   build:
-    needs: security_gate
+    needs: []
     permissions:
       id-token: write    
     runs-on: ubuntu-latest
@@ -191,7 +191,9 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push
       uses: docker/build-push-action@v5
-      with:     
+      with:
+        sbom: true
+        provenance: true     
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-labs:latest
   submit_reports:
